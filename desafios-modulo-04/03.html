@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <input type="text" placeholder="Pokemon">
+  <button onclick="searchRepos()">Buscar pokemon</button>
+  <h3></h3>
+  <ul></ul>
+
+  <script>
+    const input = document.querySelector('input');
+    const h3 = document.querySelector('h3');
+
+    function searchRepos() {
+      const pokemon = input.value;
+      const ul = document.querySelector('ul');
+      const loading = document.createElement('li');
+      ul.innerHTML = '';
+      loading.textContent = 'Loading...'
+      h3.textContent = 'Loading...'
+      ul.appendChild(loading);
+      input.value = '';
+
+      return axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+        .then((response) => {
+          ul.innerHTML = '';
+          console.log(response)
+          h3.textContent = `Habilidades do ${pokemon}`
+
+          response.data.abilities.forEach(({ ability }) => {
+            console.log(ability)
+            const li = document.createElement('li');
+            li.textContent = ability.name;
+            ul.appendChild(li);
+          })
+
+        })
+        .catch(() => {
+          ul.innerHTML = '';
+          const notFoundLi = document.createElement('li')
+          notFoundLi.textContent = 'Não achamos esse pokemon';
+          ul.appendChild(notFoundLi);
+          h3.textContent = 'Quem é esse Pokemon?'
+        })
+    }
+  </script>
+</body>
+
+</html>
