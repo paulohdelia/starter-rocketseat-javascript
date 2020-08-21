@@ -13,4 +13,5 @@
 
 ## :book: Índice
 
-* [Introdução JavaScript](/desafio-modulo-01)
+* [Introdução JavaScript](/desafios-modulo-01)
+* [Manipulando a DOM](/desafios-modulo-02)
