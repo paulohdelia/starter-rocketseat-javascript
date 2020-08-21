@@ -8,3 +8,15 @@ let todos = [
   'Fazer módulo de React Native', 'Fazer GoStack',
   'Trabalhar na Google',
 ]
+
+function renderTodos() {
+  for (todo of todos) {
+    const todoElement = document.createElement('li');
+    const todoText = document.createTextNode(todo);
+
+    todoElement.appendChild(todoText);
+    listElement.appendChild(todoElement);
+  }
+}
+
+renderTodos();
