@@ -33,3 +33,20 @@ function pares(x, y) {
 }
 pares(32, 321);
 ```
+
+<br>
+
+## 3º exercício
+
+Escreva uma função que verifique se o vetor de habilidades passado possui a habilidade "Javascript"
+e retorna um booleano _true/false_ caso exista ou não.
+
+```js
+function temHabilidade(skills) {
+ // código aqui
+}
+var skills = ["Javascript", "ReactJS", "React Native"];
+temHabilidade(skills); // true ou false
+```
+
+_Dica: para verificar se um vetor contém um valor, utilize o método indexOf._
