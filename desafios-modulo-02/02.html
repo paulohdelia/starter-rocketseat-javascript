@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="createRedSquare()">Criar quadrado vermelho</button>
+  <div class="red-square-container" style="display: flex; flex-wrap: wrap; max-width: 100%;"></div>
+
+  <script>
+    function createRedSquare() {
+      const redSquare = document.createElement('div');
+      redSquare.style.height = '100px';
+      redSquare.style.width = '100px';
+      redSquare.style.backgroundColor = 'red';
+      redSquare.style.margin = '4px'
+      redSquare.setAttribute('onmouseover', 'setRandomBackgroundColor(event.target)');
+
+      document.querySelector('.red-square-container')
+        .appendChild(redSquare)
+    }
+
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function setRandomBackgroundColor(element) {
+      const color = getRandomColor();
+      element.style.backgroundColor = color;
+    }
+  </script>
+</body>
+
+</html>
