@@ -15,3 +15,4 @@
 
 * [Introdução JavaScript](/desafios-modulo-01)
 * [Manipulando a DOM](/desafios-modulo-02)
+* [App de Todos](/desafios-modulo-03)
