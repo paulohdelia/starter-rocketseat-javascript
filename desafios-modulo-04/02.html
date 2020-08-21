@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" placeholder="Usuário do github">
+  <button onclick="searchRepos()">Buscar repositórios</button>
+  <h3></h3>
+  <ul></ul>
+
+  <script>
+    const input = document.querySelector('input');
+    const h3 = document.querySelector('h3');
+
+    function searchRepos() {
+      const githubUser = input.value || 'paulohdelia';
+
+      h3.textContent = githubUser;
+      input.value = '';
+
+      const apiPromise = new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', `https://api.github.com/users/${githubUser}/repos`)
+        xhr.send(null);
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            xhr.status === 200 ? resolve(JSON.parse(xhr.responseText)) : reject(xhr.responseText);
+          }
+        }
+      });
+
+      const ul = document.querySelector('ul');
+      ul.innerHTML = '';
+
+      apiPromise.then(repos => {
+        repos.forEach(({ name }) => {
+          const repo = document.createElement('li');
+          repo.textContent = name;
+
+          ul.appendChild(repo)
+        })
+      }).catch(console.warn)
+    }
+  </script>
+</body>
+
+</html>
