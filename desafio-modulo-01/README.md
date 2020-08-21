@@ -68,3 +68,30 @@ experiencia(anosEstudo);
 // De 3-6 anos: Avançado
 // De 7 acima: Jedi Master
 ```
+
+## 5º exercício
+
+Dado o seguinte vetor de objetos:
+
+```js
+var usuarios = [
+  {
+    nome: "Diego",
+    habilidades: ["Javascript", "ReactJS", "Redux"]
+  },
+  {
+    nome: "Gabriel",
+    habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+  }
+];
+```
+
+Escreva uma função que produza o seguinte resultado:
+```log
+O Diego possui as habilidades: Javascript, ReactJS, Redux
+O Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir
+```
+
+
+_Dica: Para percorrer um vetor você deve utilizar a sintaxe for...of e para unir valores de um array
+com um separador utilize o join._
